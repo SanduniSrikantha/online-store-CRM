@@ -135,7 +135,7 @@
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
-              <span class="menu-title">Documentation</span>
+              <span class="menu-title">Products</span>
             </a>
           </li>
         </ul>
