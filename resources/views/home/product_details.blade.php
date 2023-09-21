@@ -68,8 +68,16 @@
 
             
             <div>
-              
-              <a href="" class="btn btn-primary">Add to Cart</a>
+            <form action="{{url('add_cart', $product->id)}}" method="Post">
+
+                @csrf
+                <div>
+                <input type="number" name="quantity" value="1" min="1">
+                <input type="submit" value="Add to Cart">
+                </div>
+            </form> 
+
+         
             </div>
           </div>
        

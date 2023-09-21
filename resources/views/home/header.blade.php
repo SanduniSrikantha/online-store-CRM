@@ -52,11 +52,18 @@
 
       @auth
 
-      <a href="#" class="icons-btn d-inline-block"><span class="icon-heart-o"></span></a>
-      <a href="cart.html" class="icons-btn d-inline-block bag">
+      
+
+
+      <a href="{{url('show_cart')}}" class="icons-btn d-inline-block bag">
         <span class="icon-shopping-bag"></span>
         <span class="number">2</span>
       </a>
+
+
+
+
+
 
       <li class="icons-btn d-inline-block">
           <!--<a class="btn btn-primary" id="logoutcss" href="{{ route('login') }}">Logout</a>-->
