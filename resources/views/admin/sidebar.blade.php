@@ -88,14 +88,14 @@
               <span class="menu-title">Category</span>
             </a>
           </li>
-          <!--<li class="nav-item menu-items">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('order')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
-              <span class="menu-title">Sales Management</span>
+              <span class="menu-title">Orders</span>
             </a>
-          </li>
+          <!--</li>
           <li class="nav-item menu-items">
             <a class="nav-link" href="pages/charts/chartjs.html">
               <span class="menu-icon">

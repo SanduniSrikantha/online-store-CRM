@@ -43,6 +43,16 @@
             width: auto;
         }
     </style>
+
+@if(session()->has('message'))
+
+<div class="alert alert-success">
+
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+{{session()->get('message')}}
+</div>
+
+@endif
     
   </head>
   <body>
@@ -88,6 +98,12 @@
 
     <div>
         <h1>Total Price: ${{$totalprice}}.00</h1>
+    </div>
+
+    <div>
+        <h1>Proceed to order</h1>
+        <a href="{{url('cash_order')}}" class="btn btn-danger">Cash On Delivery</a>
+        <a href="{{url('stripe', $totalprice )}}" class="btn btn-danger">Pay using Card</a>
     </div>
    </div>
 
