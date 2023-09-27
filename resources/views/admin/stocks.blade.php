@@ -68,7 +68,7 @@
          <th class="th_design">Discount</th>
          <th class="th_design">Image</th>
          <th class="th_design">Update</th>
-         <th class="th_design">Delete</th>
+         <!--<th class="th_design">Delete</th>-->
      </tr>
 
      @foreach($product as $product)
@@ -85,11 +85,11 @@
          </td>
 
          <td>
-             <a  class="btn btn-success"href="{{url('update_product',$product->id)}}">Order</a>
+             <a  class="btn btn-success"href="#">Order</a>
          </td>
-         <td>
+         <!--<td>
          <a onclick="return confirm('Are you sure you want to delete this product?')" class="btn btn-danger "href="{{url('delete_product',$product->id)}}">Delete</a>
-         </td>
+         </td>-->
      </tr>
 
      @endforeach

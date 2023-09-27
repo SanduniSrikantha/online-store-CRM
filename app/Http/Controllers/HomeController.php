@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\LoginEvent;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +20,9 @@ use Illuminate\Support\Facades\DB;
 use Session;
 
 use Stripe;
+
+
+
 
 
 class HomeController extends Controller
@@ -123,6 +127,8 @@ class HomeController extends Controller
         }
     }
 
+
+
     public function product_details($id){
 
         $product=product::find($id);
@@ -183,6 +189,8 @@ class HomeController extends Controller
 
         return view('home.showcart', compact('cart'));
     }
+
+
 
     public function remove_cart($id){
         $cart=cart::find($id);

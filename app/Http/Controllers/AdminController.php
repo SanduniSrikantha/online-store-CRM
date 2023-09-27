@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\LoginEvent;
+use App\Models\Category;
+use App\Models\Order;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-use App\Models\Category;
-
-use App\Models\Product;
-
-use App\Models\Order;
-
-use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -22,6 +20,8 @@ class AdminController extends Controller
 
         return view('admin.category',compact('data'));
     }
+
+
 
     public function add_category(Request $request)
     {

@@ -1,11 +1,16 @@
 <?php
 
 namespace App\Listeners;
+use App\Models\HistoryLogin;
+use App\Models\LoginHistory;
+use Illuminate\Auth\Events\Authenticated;
 
 use App\Events\LoginEvent;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class LoginListener
 {
@@ -20,17 +25,19 @@ class LoginListener
     /**
      * Handle the event.
      */
-    public function handle(LoginEvent $event)
+    public function handle($event)
     {
-        $time = Carbon::now()->toDateTimeString();
-        $username = $event->username;
-        $email = $event->email;
+       
+        $user = $event->user;
+       
 
-        DB::table('login_history')->insert([
-            'name' => $username,
-            'email' => $email,
-            'created_at' => $time,
-            'updated_at' => $time
+        LoginHistory::create([
+            'user_id'=>$user->id,
+            'name'=>$user->email
         ]);
+
+        Log::info('User authenticated: ' .
+        $event->user->name.' at with '.
+        $event->user->id.''.now());
     }
 }
