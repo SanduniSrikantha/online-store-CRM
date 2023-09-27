@@ -98,7 +98,22 @@ class HomeController extends Controller
            ->havingRaw('order_count > 1')
            ->get();
 
-            return view('admin.home', compact('total_product', 'total_order', 'total_customer', 'total_revenue', 'total_delivered', 'total_processing', 'topSellingProducts', 'mostProfitableCategories', 'retentionRate', 'churnRate', 'repeatCustomers'));
+           // Retrieve data from the orders table and group it by month
+           $orderData = DB::table('orders')
+           ->select(DB::raw('MONTH(created_at) as month'), DB::raw('COUNT(*) as order_count'))
+           ->groupBy(DB::raw('MONTH(created_at)'))
+           ->get();
+
+           // Prepare the data for Chart.js
+           $labels = [];
+           $data = [];
+           foreach ($orderData as $row) {
+           $monthName = date("F", mktime(0, 0, 0, $row->month, 1));
+           $labels[] = $monthName;
+           $data[] = $row->order_count;
+}
+
+            return view('admin.home', compact('total_product', 'total_order', 'total_customer', 'total_revenue', 'total_delivered', 'total_processing', 'topSellingProducts', 'mostProfitableCategories', 'retentionRate', 'churnRate', 'repeatCustomers', 'labels', 'data'));
         }
         
         else

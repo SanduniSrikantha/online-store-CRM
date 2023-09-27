@@ -548,6 +548,8 @@
                 </table>
             </div>
 
+            
+
 
 
 
@@ -637,6 +639,40 @@
                   </div>
                 </div>
               </div>-->
+              <div>
+  <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div style="width: 80%; margin: 0 auto;">
+        <canvas id="myChart"></canvas>
+
+<script>
+  //const ctx = document.getElementById('myChart');
+  const ctx = document.getElementById('myChart').getContext('2d');
+  const labels = @json($labels); // Convert PHP array to JavaScript array
+  const data = @json($data);
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Number of orders',
+        data:data,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+</div>
             </div>
           </div>
           <!-- content-wrapper ends -->
