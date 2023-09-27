@@ -59,7 +59,11 @@
   
   <div class="site-wrap">
 
+
   @include('home.header')
+
+
+
     
 
 

@@ -57,6 +57,15 @@ route::get('/order', [AdminController::class,'order']);
 
 route::get('/delivered/{id}', [AdminController::class,'delivered']);
 
+route::get('/view_user', [AdminController::class, 'view_user']);
+
+route::post('/add_user', [AdminController::class, 'add_user']);
+
+route::get('/show_user', [AdminController::class, 'show_user']);
+
+route::get('/stocks', [AdminController::class, 'stocks']);
+
+
 
 
 

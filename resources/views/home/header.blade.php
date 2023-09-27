@@ -60,6 +60,25 @@
         <span class="number">2</span>
       </a>
 
+      @if (Route::has('login'))
+
+@auth
+
+<li class="nav-item">
+   <a class="nav-link"  style="background-color: skyblue; " href="{{url('show_cart')}}">Cart [ <span style="color: green;">{{App\Models\cart::where('user_id','=',Auth::user()->id)->count()}}]</span></a>
+</li>
+
+@else
+
+ <li class="nav-item">
+   <a class="nav-link"  style="background-color: skyblue; " href="{{url('show_cart')}}">Cart [ 0 ]</a>
+</li>
+
+
+@endauth
+
+@endif
+
 
 
 

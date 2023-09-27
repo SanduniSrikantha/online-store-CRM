@@ -10,6 +10,8 @@ use App\Models\Product;
 
 use App\Models\Order;
 
+use App\Models\User;
+
 class AdminController extends Controller
 {
     public function view_category()
@@ -156,5 +158,40 @@ class AdminController extends Controller
 
         return redirect()->back();
 
+    }
+
+    public function view_user(){
+        return view('admin.user');
+    }
+
+    public function add_user(Request $request){
+        $user=new user;
+
+        $user->name=$request->Username;
+        $user->email=$request->Email;
+        $user->usertype=$request->Usertype;
+        $user->phone=$request->Phone;
+        $user->address=$request->Address;
+        $user->password=$request->Password;
+
+        $user->save();
+
+        return redirect()->back();
+
+
+
+    }
+
+    public function show_user(){
+
+        $user=user::all();
+        return view('admin.show_user',compact('user'));
+
+    }
+
+    public function stocks(){
+
+        $product=product::all();
+        return view('admin.stocks', compact('product'));
     }
 }

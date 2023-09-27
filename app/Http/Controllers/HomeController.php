@@ -14,6 +14,8 @@ use App\Models\Cart;
 
 use App\Models\Order;
 
+use Illuminate\Support\Facades\DB;
+
 use Session;
 
 use Stripe;
@@ -53,8 +55,50 @@ class HomeController extends Controller
 
             $total_processing=order::where('delivery_status', '=', 'processing')->get()->count();
 
+            $topSellingProducts = DB::table('products')
+            ->select('products.title', 'products.price', DB::raw('COUNT(orders.product_id) as total_orders'))
+            ->leftJoin('orders', 'products.id', '=', 'orders.product_id')
+            ->groupBy('products.id', 'products.title', 'products.price')
+            ->orderByDesc('total_orders')
+            ->take(3) // Adjust the number as needed
+            ->get();
 
-            return view('admin.home', compact('total_product', 'total_order', 'total_customer', 'total_revenue', 'total_delivered', 'total_processing'));
+            $mostProfitableCategories = DB::table('products')
+            ->select('products.category', DB::raw('SUM(orders.price) as total_revenue'))
+            ->join('orders', 'products.id', '=', 'orders.product_id')
+            ->groupBy('products.category')
+            ->orderByDesc('total_revenue')
+            ->get();
+
+            // Calculate the total number of customers
+            $totalCustomers = DB::table('orders')
+            ->distinct('user_id')
+            ->count('user_id');
+    
+           // Calculate the number of customers who made repeat purchases (retained customers)
+           $retainedCustomers = DB::table('orders')
+            ->distinct('user_id')
+            ->whereNotIn('user_id', function ($query) {
+                $query->select('user_id')
+                    ->from('orders')
+                    ->whereRaw('DATE(created_at) <= DATE_SUB(NOW(), INTERVAL 365 DAY)');
+            })
+            ->count('user_id');
+
+           // Calculate the churn rate
+            $churnRate = (($totalCustomers - $retainedCustomers) / $totalCustomers) * 100;
+
+           // Calculate the retention rate
+           $retentionRate = 100 - $churnRate;
+
+
+           $repeatCustomers = User::select('users.id', 'users.name', DB::raw('COUNT(orders.id) as order_count'))
+           ->join('orders', 'users.id', '=', 'orders.user_id')
+           ->groupBy('users.id', 'users.name')
+           ->havingRaw('order_count > 1')
+           ->get();
+
+            return view('admin.home', compact('total_product', 'total_order', 'total_customer', 'total_revenue', 'total_delivered', 'total_processing', 'topSellingProducts', 'mostProfitableCategories', 'retentionRate', 'churnRate', 'repeatCustomers'));
         }
         
         else

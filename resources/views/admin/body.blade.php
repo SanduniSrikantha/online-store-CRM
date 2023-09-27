@@ -1,4 +1,8 @@
         <!-- partial -->
+        <head>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        </head>
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="row">
@@ -145,7 +149,7 @@
                 </div>
               </div>
             </div>
-            <!--<div class="row">
+            <div class="row">
               <div class="col-md-4 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
@@ -473,7 +477,99 @@
             </div>
            
             <div class="row">
-              <div class="col-12">
+            <div class="top-selling-products">
+                <h2>Top Selling Products</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+               
+                            <th>Total Quantity Sold</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($topSellingProducts as $product)
+                            <tr>
+                                <td>{{ $product->title }}</td>
+                                <td>{{ $product->total_orders }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="most-profitable-categories">
+                <h2>Most Profitable Product Categories</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Total Revenue</th>
+                        </tr>
+                                </thead>
+                    <tbody>
+                        @foreach($mostProfitableCategories as $category)
+                            <tr>
+                                <td>{{ $category->category }}</td>
+                                <td>${{ $category->total_revenue }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="retention-churn-rates">
+                <h2>Customer Retention and Churn Rates</h2>
+                <p>Retention Rate: {{ $retentionRate }}%</p>
+                <p>Churn Rate: {{ $churnRate }}%</p>
+            </div>
+
+
+            <div class="repeat-customers">
+                <h2>Repeat Customers</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Name</th>
+                            <th>Order Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($repeatCustomers as $customer)
+                            <tr>
+                                <td>{{ $customer->id }}</td>
+                                <td>{{ $customer->name }}</td>
+                                <td>{{ $customer->order_count }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+           
+
+
+
+
+
+
+
+
+
+
+
+              
+
+
+
+
+
+              <!--<div class="col-12">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Visitors by Countries</h4>
@@ -540,9 +636,9 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>-->
             </div>
-          </div>-->
+          </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           <footer class="footer">
