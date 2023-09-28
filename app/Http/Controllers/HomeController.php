@@ -115,9 +115,48 @@ class HomeController extends Controller
            $monthName = date("F", mktime(0, 0, 0, $row->month, 1));
            $labels[] = $monthName;
            $data[] = $row->order_count;
+
+           // User behavior segmentation code
+           $dailyThreshold = 7;      // Logins in the last 7 days
+           $weeklyThreshold = 30;    // Logins in the last 30 days
+           $monthlyThreshold = 90;   // Logins in the last 90 days
+           
+           $userSegmentation = User::leftJoin('login_histories', 'users.id', '=', 'login_histories.user_id')
+               ->select('users.id', 'users.name')
+               ->selectRaw("CASE
+                               WHEN COUNT(login_histories.id) >= $dailyThreshold THEN 'Daily'
+                               WHEN COUNT(login_histories.id) >= $weeklyThreshold THEN 'Weekly'
+                               WHEN COUNT(login_histories.id) >= $monthlyThreshold THEN 'Monthly'
+                               ELSE 'Inactive'
+                           END AS login_segment")
+               ->groupBy('users.id', 'users.name')
+               ->get();
+
+            // Calculate revenue per month
+            $revenuePerMonth = DB::table('orders')
+            ->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m") as month'), DB::raw('SUM(price) as revenue'))
+            ->groupBy('month')
+            ->orderBy('month')
+            ->get();
+
+                    // Calculate total sales
+        $totalSales = DB::table('orders')->sum('price');
+
+        // Calculate sales paid by cash and by card
+        $salesPaidByCash = DB::table('orders')
+            ->where('payment_status', 'cash on delivery')
+            ->sum('price');
+
+        $salesPaidByCard = DB::table('orders')
+            ->where('payment_status', 'Paid using card')
+            ->sum('price');
+
+        // Calculate the percentages
+        $percentagePaidByCash = ($salesPaidByCash / $totalSales) * 100;
+        $percentagePaidByCard = ($salesPaidByCard / $totalSales) * 100;
 }
 
-            return view('admin.home', compact('total_product', 'total_order', 'total_customer', 'total_revenue', 'total_delivered', 'total_processing', 'topSellingProducts', 'mostProfitableCategories', 'retentionRate', 'churnRate', 'repeatCustomers', 'labels', 'data'));
+            return view('admin.home', compact('total_product', 'total_order', 'total_customer', 'total_revenue', 'total_delivered', 'total_processing', 'topSellingProducts', 'mostProfitableCategories', 'retentionRate', 'churnRate', 'repeatCustomers', 'labels', 'data', 'userSegmentation', 'revenuePerMonth', 'totalSales', 'salesPaidByCash', 'salesPaidByCard','percentagePaidByCash', 'percentagePaidByCard'));
         }
         
         else

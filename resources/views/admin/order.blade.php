@@ -45,7 +45,7 @@
                 <th>Product</th>
                 <th>Quantity</th>
                 <th>Price</th>
-                <th>Payment Status</th>
+                <th>Payment Method</th>
                 <th>Delivery Status</th>
                 <th>Image</th>
                 <th>Delivered</th>

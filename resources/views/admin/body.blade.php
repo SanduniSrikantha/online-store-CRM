@@ -2,6 +2,8 @@ i
         <!-- partial -->
         <head>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
         </head>
         <div class="main-panel">
@@ -338,6 +340,32 @@ i
                 </div>
               </div>
             </div>
+            <div class="row">
+            <!--------------------------------------------------->
+            <div>
+            @include('admin.barchart')
+
+            </div>
+            <div>
+            @include('admin.piechart')
+
+            </div>
+            <div>
+            @include('admin.linechart')
+
+            </div>
+            <div>
+              @include('admin.doughnutchart')
+            
+
+            </div>
+            <div>
+            @include('admin.user_behaviour_segmentation')
+            </div>
+            
+            
+            
+            </div>
             <div class="row ">
               <div class="col-12 grid-margin">
                 <div class="card">
@@ -551,6 +579,8 @@ i
 
             
 
+            
+
 
 
 
@@ -640,40 +670,27 @@ i
                   </div>
                 </div>
               </div>-->
-              <div>
-  <canvas id="myChart"></canvas>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<div style="width: 80%; margin: 0 auto;">
-        <canvas id="myChart"></canvas>
 
-<script>
-  //const ctx = document.getElementById('myChart');
-  const ctx = document.getElementById('myChart').getContext('2d');
-  const labels = @json($labels); // Convert PHP array to JavaScript array
-  const data = @json($data);
 
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: labels,
-      datasets: [{
-        label: 'Number of orders',
-        data:data,
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-</script>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

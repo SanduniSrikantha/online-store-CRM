@@ -63,6 +63,8 @@ route::post('/add_user', [AdminController::class, 'add_user']);
 
 route::get('/show_user', [AdminController::class, 'show_user']);
 
+route::get('/user_analytics', [AdminController::class, 'user_analytics']);
+
 route::get('/stocks', [AdminController::class, 'stocks']);
 
 

@@ -90,7 +90,7 @@
          <!--<td>
          <a onclick="return confirm('Are you sure you want to delete this product?')" class="btn btn-danger "href="{{url('delete_product',$product->id)}}">Delete</a>
          </td>-->
-     </tr>
+    </tr>
 
      @endforeach
 

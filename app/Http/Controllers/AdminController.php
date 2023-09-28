@@ -153,7 +153,7 @@ class AdminController extends Controller
     public function delivered($id){
         $order=order::find($id);
         $order->delivery_status="delivered";
-        $order->payment_status="Paid";
+        //$order->payment_status="Paid";
         $order->save();
 
         return redirect()->back();
@@ -194,4 +194,14 @@ class AdminController extends Controller
         $product=product::all();
         return view('admin.stocks', compact('product'));
     }
+
+    public function user_analytics(){
+
+        $user=user::all();
+        return view('admin.user_analytics',compact('user'));
+
+    }
+
 }
+
+
