@@ -202,6 +202,39 @@ class AdminController extends Controller
 
     }
 
+    public function delete_user($id){
+        $user=user::find($id);
+
+        $user->delete();
+
+        return redirect()->back()->with('message', 'User Deleted Successfully');
+    }
+
+    public function update_user($id){
+
+        $user=user::find($id);
+
+
+        return view('admin.update_user', compact('user'));
+    }
+
+    public function update_user_confirm(Request $request, $id){
+        $user=user::find($id);
+
+        $user->name=$request->Username;
+        $user->email=$request->Email;
+        $user->usertype=$request->Usertype;
+        $user->phone=$request->Phone;
+        $user->address=$request->Address;
+        $user->password=$request->Password;
+
+        $user->save();
+
+        return redirect()->back()->with('message', 'User Information Updated Sucessfully.');
+       
+
+    }
+
 }
 
 

@@ -577,6 +577,38 @@ i
                 </table>
             </div>
 
+            <!-- Display Most Viewed Products -->
+            <div>
+                <h3>Most Viewed Products:</h3>
+                <ul>
+                    @foreach ($mostViewedProducts as $product)
+                        <li>{{ $product->title }} - Views: {{ $product->views }}</li>
+                    @endforeach
+                </ul>
+            </div>
+
+            <!-- Display Products with Zero Views -->
+            <div>
+                <h3>Products with Zero Views:</h3>
+                <ul>
+                    @foreach ($productsWithZeroViews as $product)
+                        <li>{{ $product->title }}</li>
+                    @endforeach
+                </ul>
+            </div>
+
+            <div>
+                <h3>Conversion Rate:</h3>
+                <p>{{ $conversionRate }}%</p>
+            </div>
+
+            <div>
+                <h3>Abandoned Carts:</h3>
+                <p>{{ $abandonedCarts }}</p>
+            </div>
+
+
+
             
 
             

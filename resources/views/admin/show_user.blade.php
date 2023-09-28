@@ -82,10 +82,10 @@
 
 
          <td>
-             <a  class="btn btn-success"href="">Update</a>
+             <a  class="btn btn-success" href="{{url('update_user', $user->id)}}">Update</a>
          </td>
          <td>
-         <a onclick="return confirm('Are you sure you want to delete this product?')" class="btn btn-danger "href="">Delete</a>
+         <a onclick="return confirm('Are you sure you want to delete this product?')" class="btn btn-danger "href="{{url('delete_user', $user->id )}}">Delete</a>
          </td>
      </tr>
 

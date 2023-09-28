@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\LoginEvent;
+use App\Jobs\productviews;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
@@ -154,9 +155,23 @@ class HomeController extends Controller
         // Calculate the percentages
         $percentagePaidByCash = ($salesPaidByCash / $totalSales) * 100;
         $percentagePaidByCard = ($salesPaidByCard / $totalSales) * 100;
+
+        $product = Product::all();
+        $mostViewedProducts = Product::orderByDesc('views')->take(5)->get(); // Modify the limit as needed
+        $productsWithZeroViews = Product::where('views', 0)->get();
+
+                // Calculate the conversion rate
+                $completedOrders = DB::table('orders')->count();
+                $createdCarts = DB::table('carts')->whereNotNull('user_id')->count();
+        
+                // Avoid division by zero
+                $conversionRate = ($createdCarts > 0) ? ($completedOrders / $createdCarts) * 100 : 0;
+        
+                // Find abandoned carts
+                $abandonedCarts = DB::table('carts')->whereNull('user_id')->count();
 }
 
-            return view('admin.home', compact('total_product', 'total_order', 'total_customer', 'total_revenue', 'total_delivered', 'total_processing', 'topSellingProducts', 'mostProfitableCategories', 'retentionRate', 'churnRate', 'repeatCustomers', 'labels', 'data', 'userSegmentation', 'revenuePerMonth', 'totalSales', 'salesPaidByCash', 'salesPaidByCard','percentagePaidByCash', 'percentagePaidByCard'));
+            return view('admin.home', compact('total_product', 'total_order', 'total_customer', 'total_revenue', 'total_delivered', 'total_processing', 'topSellingProducts', 'mostProfitableCategories', 'retentionRate', 'churnRate', 'repeatCustomers', 'labels', 'data', 'userSegmentation', 'revenuePerMonth', 'totalSales', 'salesPaidByCash', 'salesPaidByCard','percentagePaidByCash', 'percentagePaidByCard', 'mostViewedProducts', 'productsWithZeroViews', 'abandonedCarts','conversionRate' ));
         }
         
         else
@@ -170,7 +185,11 @@ class HomeController extends Controller
 
     public function product_details($id){
 
+        
+
         $product=product::find($id);
+
+        productviews::dispatch($product);
         return view('home.product_details', compact('product'));
     }
 

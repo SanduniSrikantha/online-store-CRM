@@ -67,7 +67,11 @@ route::get('/user_analytics', [AdminController::class, 'user_analytics']);
 
 route::get('/stocks', [AdminController::class, 'stocks']);
 
+route::get('/delete_user/{id}', [AdminController::class,'delete_user']);
 
+route::get('/update_user/{id}', [AdminController::class,'update_user']);
+
+route::post('/update_user_confirm/{id}', [AdminController::class,'update_user_confirm']);
 
 
 
