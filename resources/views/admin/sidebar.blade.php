@@ -1,11 +1,11 @@
 
 
 
+<head>@vite('resources/css/app.css')</head>
 
-
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="index.html"><img src="admin/assets/images/logo.svg" alt="logo" /></a>
+<nav class="sidebar sidebar-offcanvas bg-white" className="" id="sidebar">
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top bg-white">
+          <a class="text-2xl text-black" href="index.html"><h1>MOMO</h1></a>
           <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="admin/assets/images/logo-mini.svg" alt="logo" /></a>
         </div>
         <ul class="nav">
@@ -17,7 +17,7 @@
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Admin</h5>
+                  <h5 class="mb-0 font-weight-normal text-black">Admin</h5>
                   <span>Normal Admin</span>
                 </div>
               </div>
@@ -59,7 +59,7 @@
             </div>
           </li>
           <li class="nav-item nav-category">
-            <span class="nav-link">Navigation</span>
+            <span class="nav-link text-lg">NAVIGATION</span>
           </li>
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('/redirect')}}">

@@ -3,14 +3,15 @@ i
         <head>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        @vite('resources/css/app.css')
 
 
         </head>
-        <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="row">
-              <div class="col-12 grid-margin stretch-card">
-                <div class="card corona-gradient-card">
+        <div class="main-panel bg-white">
+          <div class="content-wrapper bg-white">
+            <div class="row bg-white">
+              <div class="col-12 grid-margin stretch-card ">
+                <div class="bg-white ">
                   <div class="card-body py-0 px-0 px-sm-3">
                     <div class="row align-items-center">
                       <!--<div class="col-4 col-sm-3 col-xl-2">
@@ -30,20 +31,20 @@ i
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row ">
               <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-                <div class="card">
+                <div class="card bg-white">
                   <div class="card-body">
                     <div class="row">
                       <div class="col-9">
                         <div class="d-flex align-items-center align-self-start">
-                          <h3 class="mb-0">{{$total_product}}</h3>
+                          <h3 class="mb-0 text-black text-lg">{{$total_product}}</h3>
                           <p class="text-success ml-2 mb-0 font-weight-medium"></p>
                         </div>
                       </div>
                       <div class="col-3">
                         <div class="icon icon-box-success ">
-                          <span class="mdi mdi-arrow-top-right icon-item"></span>
+                          <span class="mdi mdi-clipboard"></span>
                         </div>
                       </div>
                     </div>
@@ -52,18 +53,18 @@ i
                 </div>
               </div>
               <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-                <div class="card">
+                <div class="card bg-white">
                   <div class="card-body">
                     <div class="row">
                       <div class="col-9">
                         <div class="d-flex align-items-center align-self-start">
-                          <h3 class="mb-0">{{$total_order}}</h3>
+                          <h3 class="mb-0 text-black text-lg">{{$total_order}}</h3>
                           <p class="text-success ml-2 mb-0 font-weight-medium"></p>
                         </div>
                       </div>
                       <div class="col-3">
                         <div class="icon icon-box-success">
-                          <span class="mdi mdi-arrow-top-right icon-item"></span>
+                          <span class="mdi mdi-package-down"></span>
                         </div>
                       </div>
                     </div>
@@ -72,18 +73,18 @@ i
                 </div>
               </div>
               <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-                <div class="card">
+                <div class="card bg-white">
                   <div class="card-body">
                     <div class="row">
                       <div class="col-9">
                         <div class="d-flex align-items-center align-self-start">
-                          <h3 class="mb-0">{{$total_customer}}</h3>
+                          <h3 class="mb-0 text-black text-lg">{{$total_customer}}</h3>
                           <p class="text-danger ml-2 mb-0 font-weight-medium"></p>
                         </div>
                       </div>
                       <div class="col-3">
                         <div class="icon icon-box-danger">
-                          <span class="mdi mdi-arrow-bottom-left icon-item"></span>
+                          <span class="mdi mdi-clipboard-account"></span>
                         </div>
                       </div>
                     </div>
@@ -92,38 +93,38 @@ i
                 </div>
               </div>
               <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-                <div class="card">
+                <div class="card bg-white">
                   <div class="card-body">
                     <div class="row">
                       <div class="col-9">
                         <div class="d-flex align-items-center align-self-start">
-                          <h3 class="mb-0">${{$total_revenue}}.00</h3>
+                          <h3 class="mb-0 text-black text-lg">${{$total_revenue}}.00</h3>
                           <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
                         </div>
                       </div>
                       <div class="col-3">
                         <div class="icon icon-box-success ">
-                          <span class="mdi mdi-arrow-top-right icon-item"></span>
+                          <span class="mdi mdi-cash-multiple"></span>
                         </div>
                       </div>
                     </div>
-                    <h6 class="text-muted font-weight-normal">Total Revenue</h6>
+                    <h6 class="text-muted font-weight-normal">Total Sales</h6>
                   </div>
                 </div>
               </div>
               <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-                <div class="card">
+                <div class="card bg-white">
                   <div class="card-body">
                     <div class="row">
                       <div class="col-9">
                         <div class="d-flex align-items-center align-self-start">
-                          <h3 class="mb-0">{{$total_delivered}}</h3>
+                          <h3 class="mb-0 text-black text-lg">{{$total_delivered}}</h3>
                           <p class="text-success ml-2 mb-0 font-weight-medium"></p>
                         </div>
                       </div>
                       <div class="col-3">
                         <div class="icon icon-box-success ">
-                          <span class="mdi mdi-arrow-top-right icon-item"></span>
+                          <span class="mdi mdi-car"></span>
                         </div>
                       </div>
                     </div>
@@ -132,18 +133,18 @@ i
                 </div>
               </div>
               <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-                <div class="card">
+                <div class="card bg-white">
                   <div class="card-body">
                     <div class="row">
                       <div class="col-9">
                         <div class="d-flex align-items-center align-self-start">
-                          <h3 class="mb-0">{{$total_processing}}</h3>
+                          <h3 class="mb-0 text-black text-lg">{{$total_processing}}</h3>
                           <p class="text-success ml-2 mb-0 font-weight-medium"></p>
                         </div>
                       </div>
                       <div class="col-3">
                         <div class="icon icon-box-success ">
-                          <span class="mdi mdi-arrow-top-right icon-item"></span>
+                          <span class="mdi mdi-calendar-text"></span>
                         </div>
                       </div>
                     </div>
@@ -154,7 +155,7 @@ i
             </div>
             <div class="row">
               <div class="col-md-4 grid-margin stretch-card">
-                <div class="card">
+                <div class="card bg-white">
                   <div class="card-body">
                     <h4 class="card-title">Transaction History</h4>
                     <canvas id="transaction-history" class="transaction-chart"></canvas>
@@ -180,7 +181,7 @@ i
                 </div>
               </div>
               <div class="col-md-8 grid-margin stretch-card">
-                <div class="card">
+                <div class="card ">
                   <div class="card-body">
                     <div class="d-flex flex-row justify-content-between">
                       <h4 class="card-title mb-1">Open Projects</h4>
