@@ -96,6 +96,22 @@
 
  </table>
 
+ <!-- Products with less than 5 items in stock -->
+<h2>Products with Low Stock</h2>
+<ul>
+    @foreach ($productsLowStock as $product)
+        <li>{{ $product->title }} ({{ $product->quantity }} items in stock)</li>
+    @endforeach
+</ul>
+
+<!-- Products with zero items in stock -->
+<h2>Products Out of Stock</h2>
+<ul>
+    @foreach ($productsZeroStock as $product)
+        <li>{{ $product->title }} (Out of stock)</li>
+    @endforeach
+</ul>
+
 
 
 

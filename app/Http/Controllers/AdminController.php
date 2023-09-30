@@ -192,7 +192,10 @@ class AdminController extends Controller
     public function stocks(){
 
         $product=product::all();
-        return view('admin.stocks', compact('product'));
+        $productsLowStock = Product::where('quantity', '<', 5)->get();
+        $productsZeroStock = Product::where('quantity', 0)->get();
+
+        return view('admin.stocks', compact('product', 'productsLowStock', 'productsZeroStock'));
     }
 
     public function user_analytics(){
