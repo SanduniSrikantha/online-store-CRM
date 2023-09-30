@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="home/css/aos.css">
 
     <link rel="stylesheet" href="home/css/style.css">
+    @vite('resources/css/app.css')
     
   </head>
   <body>

@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="home/css/aos.css">
 
     <link rel="stylesheet" href="home/css/style.css">
+    @vite('resources/css/app.css')
     
   </head>
   <body>
@@ -35,9 +36,10 @@
 
   <div class="col-lg-4 col-md-6 item-entry mb-4" style="margin: auto; width:50%; padding:30px;">
             <a href="#" class="product-item md-height bg-gray d-block">
-              <img src="product/{{$product->image}}" alt="Image" class="img-fluid">
+              <img src="product/{{$product->image}}" alt="Image" class="object-fill">
             </a>
             <h2 class="item-title"><a href="#">{{$product->title}}</a></h2>
+
 
             @if($product->discount_price!=null)
 

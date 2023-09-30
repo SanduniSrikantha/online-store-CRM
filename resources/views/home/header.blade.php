@@ -57,27 +57,10 @@
 
       <a href="{{url('show_cart')}}" class="icons-btn d-inline-block bag">
         <span class="icon-shopping-bag"></span>
-        <span class="number">2</span>
+        <span class="number">{{App\Models\cart::where('user_id','=',Auth::user()->id)->count()}}</span>
       </a>
 
-      @if (Route::has('login'))
 
-@auth
-
-<li class="nav-item">
-   <a class="nav-link"  style="background-color: skyblue; " href="{{url('show_cart')}}">Cart [ <span style="color: green;">{{App\Models\cart::where('user_id','=',Auth::user()->id)->count()}}]</span></a>
-</li>
-
-@else
-
- <li class="nav-item">
-   <a class="nav-link"  style="background-color: skyblue; " href="{{url('show_cart')}}">Cart [ 0 ]</a>
-</li>
-
-
-@endauth
-
-@endif
 
 
 
