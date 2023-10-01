@@ -40,8 +40,8 @@
       <!-- partial -->
       @include('admin.header')
     <!-- container-scroller -->
-    <div class="main-panel">
-        <div class="content-wrapper">
+    <div class="main-panel bg-white">
+        <div class="content-wrapper bg-white">
             <div class="div_center">
             @if(session()->has('message'))
 
@@ -57,7 +57,7 @@
 
 
 
-                <h1 class="font_size">Add Product</h1>
+                <h1 class="font_size uppercase text-black">Add Product</h1>
 
                 <form action="{{url('/add_product')}}" method="POST" enctype="multipart/form-data">
 
@@ -66,35 +66,35 @@
 
 
                 <div class="div_design">
-                    <label>Product Name</label>
-                    <input class="text_color" type="text" name="title" placeholder="Enter product name" required="">
+                    <label class="text-black">Product Name</label>
+                    <input class="text-black" type="text" name="title" placeholder="Enter product name" required="">
                 </div>
 
                 <div class="div_design">
-                    <label>Product Description</label>
-                    <input class="text_color" type="text" name="description" placeholder="Enter product description" required="">
+                    <label class="text-black">Product Description</label>
+                    <input class="text-black" type="text" name="description" placeholder="Enter product description" required="">
                 </div>
 
                 <div class="div_design">
-                    <label>Product Price</label>
-                    <input class="text_color" type="number" name="price" placeholder="Enter product price" required="">
+                    <label class="text-black">Product Price</label>
+                    <input class="text-black" type="number" name="price" placeholder="Enter product price" required="">
                 </div>
 
                 <div class="div_design">
-                    <label>Discounted Price</label>
-                    <input class="text_color" type="number" name="dis_price" placeholder="Enter discounted price">
+                    <label class="text-black">Discounted Price</label>
+                    <input class="text-black" type="number" name="dis_price" placeholder="Enter discounted price">
                 </div>
 
                 <div class="div_design">
-                    <label>Product Quantity</label>
-                    <input class="text_color" type="number" min="0" name="quantity" placeholder="Enter product quantity" required="">
+                    <label class="text-black">Product Quantity</label>
+                    <input class="text-black" type="number" min="0" name="quantity" placeholder="Enter product quantity" required="">
                 </div>
 
 
 
                 <div class="div_design">
-                    <label>Product Category</label>
-                    <select class="text_color" name="category" placeholder="Enter quantity" required="">
+                    <label class="text-black">Product Category</label>
+                    <select class="text-black" name="category" placeholder="Enter quantity" required="">
                         
                         <option value="" selected="">Choose a category</option>
 
@@ -110,13 +110,13 @@
                 </div>
 
                 <div class="div_design">
-                    <label>Product Image</label>
+                    <label class="text-black">Product Image</label>
                     <input type="file" name="image" required="">
                 </div>
 
                 <div class="div_design">
                     
-                    <input type="submit" value="Add Product" name="submit" class="btn btn-primary">
+                    <input type="submit" value="Add Product" name="submit" class="btn btn-dark">
                 </div>
 
                 </form>

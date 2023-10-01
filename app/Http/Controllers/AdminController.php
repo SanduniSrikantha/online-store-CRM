@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\LoginEvent;
+use App\Models\Category;
+use App\Models\Order;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-use App\Models\Category;
-
-use App\Models\Product;
 
 class AdminController extends Controller
 {
@@ -18,6 +20,8 @@ class AdminController extends Controller
 
         return view('admin.category',compact('data'));
     }
+
+
 
     public function add_category(Request $request)
     {
@@ -136,4 +140,111 @@ class AdminController extends Controller
 
 
     }
+
+    public function order(){
+
+        $order=order::all();
+
+
+
+        return view('admin.order', compact('order'));
+    }
+
+    public function delivered($id){
+        $order=order::find($id);
+        $order->delivery_status="delivered";
+        //$order->payment_status="Paid";
+        $order->save();
+
+        return redirect()->back();
+
+    }
+
+    public function view_user(){
+        return view('admin.user');
+    }
+
+    public function add_user(Request $request){
+        $user=new user;
+
+        $user->name=$request->Username;
+        $user->email=$request->Email;
+        $user->usertype=$request->Usertype;
+        $user->phone=$request->Phone;
+        $user->address=$request->Address;
+        $user->password=$request->Password;
+
+        $user->save();
+
+        return redirect()->back();
+
+
+
+    }
+
+    public function show_user(){
+
+        $user=user::all();
+        return view('admin.show_user',compact('user'));
+
+    }
+
+    public function stocks(){
+
+        $product=product::all();
+        $productsLowStock = Product::where('quantity', '<', 5)->get();
+        $productsZeroStock = Product::where('quantity', 0)->get();
+
+        return view('admin.stocks', compact('product', 'productsLowStock', 'productsZeroStock'));
+    }
+
+    public function user_analytics(){
+
+        $user=user::all();
+        return view('admin.user_analytics',compact('user'));
+
+    }
+
+    public function delete_user($id){
+        $user=user::find($id);
+
+        $user->delete();
+
+        return redirect()->back()->with('message', 'User Deleted Successfully');
+    }
+
+    public function update_user($id){
+
+        $user=user::find($id);
+
+
+        return view('admin.update_user', compact('user'));
+    }
+
+    public function address_book(){
+
+        $user=user::all();
+        return view('admin.address_book',compact('user'));
+
+    }
+
+    public function update_user_confirm(Request $request, $id){
+        $user=user::find($id);
+
+        $user->name=$request->Username;
+        $user->email=$request->Email;
+        $user->usertype=$request->Usertype;
+        $user->phone=$request->Phone;
+        $user->address=$request->Address;
+        $user->password=$request->Password;
+
+        $user->save();
+
+        return redirect()->back()->with('message', 'User Information Updated Sucessfully.');
+       
+
+    }
+
 }
+
+

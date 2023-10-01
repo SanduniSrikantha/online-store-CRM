@@ -19,12 +19,14 @@
         }
 
         .image_size{
-            width:150px;
-            height:150px;
+            width:300px;
+            height:auto;
         }
 
         .th_header{
-            background:purple;
+            background:;
+            margin-bottom:2px;
+    
         }
 
         .th_design{
@@ -40,8 +42,8 @@
       <!-- partial -->
       @include('admin.header')
     <!-- container-scroller -->
-    <div class="main-panel">
-        <div class="content-wrapper">
+    <div class="main-panel bg-white">
+        <div class="content-wrapper bg-white">
         @if(session()->has('message'))
 
            <div class="alert alert-success">
@@ -55,35 +57,35 @@
 
 
 
-            <h2 class="font_size">All Products</h2>
-            <table class="center">
+            <h2 class="font_size text-black mb-5">All Products</h2>
+            <table class="">
                 <tr class="th_header">
-                    <th class="th_design">Title</th>
-                    <th class="th_design">Description</th>
-                    <th class="th_design">Quantity</th>
-                    <th class="th_design">Category</th>
-                    <th class="th_design">Price</th>
-                    <th class="th_design">Discount</th>
-                    <th class="th_design">Image</th>
-                    <th class="th_design">Update</th>
-                    <th class="th_design">Delete</th>
+                    <th class="th_design text-black uppercase text-md ">Title</th>
+                    <th class="th_design text-black uppercase text-md">Description</th>
+                    <th class="th_design text-black uppercase text-md">Quantity</th>
+                    <th class="th_design text-black uppercase text-md">Category</th>
+                    <th class="th_design text-black uppercase text-md">Price</th>
+                    <th class="th_design text-black uppercase text-md">Discount</th>
+                    <th class="th_design text-black uppercase text-md">Image</th>
+                    <th class="th_design text-black uppercase text-md">Update</th>
+                    <th class="th_design text-black uppercase text-md">Delete</th>
                 </tr>
 
                 @foreach($product as $product)
 
                 <tr>
-                    <td>{{$product->title}}</td>
-                    <td>{{$product->description}}</td>
-                    <td>{{$product->quantity}}</td>
-                    <td>{{$product->category}}</td>
-                    <td>{{$product->price}}</td>
-                    <td>{{$product->discount_price}}</td>
-                    <td>
-                        <img class="image_size" src="/product/{{$product->image}}">
+                    <td class="text-black center">{{$product->title}}</td>
+                    <td class="text-black center">{{$product->description}}</td>
+                    <td class="text-black center">{{$product->quantity}}</td>
+                    <td class="text-black center">{{$product->category}}</td>
+                    <td class="text-black center">{{$product->price}}</td>
+                    <td class="text-black center">{{$product->discount_price}}</td>
+                    <td class="text-black center">
+                        <img class="image_size mt-3" src="/product/{{$product->image}}">
                     </td>
 
                     <td>
-                        <a  class="btn btn-success"href="{{url('update_product',$product->id)}}">Update</a>
+                        <a  class="btn btn-success ml-3"href="{{url('update_product',$product->id)}}">Update</a>
                     </td>
                     <td>
                     <a onclick="return confirm('Are you sure you want to delete this product?')" class="btn btn-danger "href="{{url('delete_product',$product->id)}}">Delete</a>

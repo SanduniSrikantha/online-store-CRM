@@ -1,18 +1,23 @@
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="index.html"><img src="admin/assets/images/logo.svg" alt="logo" /></a>
-          <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="admin/assets/images/logo-mini.svg" alt="logo" /></a>
+
+
+
+<head>@vite('resources/css/app.css')</head>
+
+<nav class="sidebar sidebar-offcanvas bg-gray-300" className="" id="sidebar">
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top bg-white">
+          <a class="text-2xl text-black" href="index.html"><h1>MOMO</h1></a>
+          <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="" alt="logo" /></a>
         </div>
         <ul class="nav">
           <li class="nav-item profile">
             <div class="profile-desc">
               <div class="profile-pic">
                 <div class="count-indicator">
-                  <img class="img-xs rounded-circle " src="admin/assets/images/faces/face15.jpg" alt="">
+                  <img class="img-xs rounded-circle " src="admin/assets/images/avatar.png" alt="">
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Admin</h5>
+                  <h5 class="mb-0 font-weight-normal text-white">Admin</h5>
                   <span>Normal Admin</span>
                 </div>
               </div>
@@ -54,10 +59,10 @@
             </div>
           </li>
           <li class="nav-item nav-category">
-            <span class="nav-link">Navigation</span>
+            <span class="nav-link text-lg">NAVIGATION</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{{url('/redirect')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
@@ -76,7 +81,7 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{url('/view_product')}}">Add Products</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{'/show_product'}}">Show Products</a></li>
-                <li class="nav-item"> <a class="nav-link" href="">Data Management</a></li>
+                <li class="nav-item"> <a class="nav-link" href="">Analytics</a></li>
               </ul>
             </div>
           </li>
@@ -88,49 +93,68 @@
               <span class="menu-title">Category</span>
             </a>
           </li>
-          <!--<li class="nav-item menu-items">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('order')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
-              <span class="menu-title">Sales Management</span>
+              <span class="menu-title">Orders</span>
             </a>
           </li>
+          
           <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/charts/chartjs.html">
+            <a class="nav-link" href="{{url('/stocks')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-chart-bar"></i>
               </span>
-              <span class="menu-title">Order Management</span>
+              <span class="menu-title">Stock Management</span>
             </a>
           </li>
-          <li class="nav-item menu-items">
+          <!--<li class="nav-item menu-items">
             <a class="nav-link" href="pages/icons/mdi.html">
               <span class="menu-icon">
                 <i class="mdi mdi-contacts"></i>
               </span>
               <span class="menu-title">Lead Management</span>
             </a>
-          </li>
+          </li>-->
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
               <span class="menu-icon">
                 <i class="mdi mdi-security"></i>
               </span>
-              <span class="menu-title">User Pages</span>
+              <span class="menu-title">User Management</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('/show_user')}}"> Show Users </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('/view_user')}}"> Add Users </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('/address_book')}}"> Address Book </a></li>
+                <!--<li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>-->
               </ul>
             </div>
           </li>
-          <li class="nav-item menu-items">
+          <!--<li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <span class="menu-icon">
+                <i class="mdi mdi-security"></i>
+              </span>
+              <span class="menu-title">Analytics</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{url('')}}">User Analytics</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('')}}">Product Analytics</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>-->
+              <!--</ul>
+            </div>
+          </li>-->
+          <!--<li class="nav-item menu-items">
             <a class="nav-link" href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>

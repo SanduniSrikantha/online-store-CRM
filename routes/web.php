@@ -52,3 +52,44 @@ route::get('/delete_product/{id}', [AdminController::class,'delete_product']);
 route::get('/update_product/{id}', [AdminController::class,'update_product']);
 
 route::post('/update_product_confirm/{id}', [AdminController::class,'update_product_confirm']);
+
+route::get('/order', [AdminController::class,'order']);
+
+route::get('/delivered/{id}', [AdminController::class,'delivered']);
+
+route::get('/view_user', [AdminController::class, 'view_user']);
+
+route::post('/add_user', [AdminController::class, 'add_user']);
+
+route::get('/show_user', [AdminController::class, 'show_user']);
+
+route::get('/user_analytics', [AdminController::class, 'user_analytics']);
+
+route::get('/stocks', [AdminController::class, 'stocks']);
+
+route::get('/delete_user/{id}', [AdminController::class,'delete_user']);
+
+route::get('/update_user/{id}', [AdminController::class,'update_user']);
+
+route::get('/address_book', [AdminController::class, 'address_book']);
+
+route::post('/update_user_confirm/{id}', [AdminController::class,'update_user_confirm']);
+
+
+
+
+
+route::get('/product_details/{id}', [HomeController::class,'product_details']);
+
+route::post('/add_cart/{id}', [HomeController::class,'add_cart']);
+
+route::get('/show_cart', [HomeController::class,'show_cart']);
+
+route::get('/remove_cart/{id}', [HomeController::class,'remove_cart']);
+
+route::get('/cash_order', [HomeController::class,'cash_order']);
+
+route::get('/stripe/{totalprice}', [HomeController::class,'stripe']);
+
+route::post('stripe/{totalprice}', [HomeController::class, 'stripePost'])->name('stripe.post');
+
