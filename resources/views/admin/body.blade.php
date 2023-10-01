@@ -99,7 +99,7 @@ i
                       <div class="col-9">
                         <div class="d-flex align-items-center align-self-start">
                           <h3 class="mb-0 text-black text-lg">${{$total_revenue}}.00</h3>
-                          <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
+                          <p class="text-success ml-2 mb-0 font-weight-medium"></p>
                         </div>
                       </div>
                       <div class="col-3">
@@ -153,6 +153,33 @@ i
                 </div>
               </div>
             </div>
+            <!--INSERT TABLES-->
+            <div class="row">
+              <div class="col-md-6 grid-margin">
+                <div class="bg-white">
+                  <h2  class="text-black">Monthly Sales Analysis</h2>
+                  @include('admin.linechart')
+
+                </div>
+              </div>
+              <div class="col-md-6 grid-margin">
+                <div class="bg-white">
+                  <h2  class="text-black">Monthly Orders Analysis</h2>
+                  @include('admin.barchart')
+
+                </div>
+              </div>
+
+              </div>
+
+
+
+
+
+
+
+
+
             <div class="row">
               <div class="col-md-4 grid-margin stretch-card">
                 <div class="card bg-white">

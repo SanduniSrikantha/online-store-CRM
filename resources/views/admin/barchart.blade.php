@@ -3,8 +3,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<div style="width: 80%; margin: 0 auto;">
-        <canvas id="myChart1"></canvas>
+
 
 <script>
   //const ctx = document.getElementById('myChart');
@@ -19,6 +18,7 @@
       datasets: [{
         label: 'Number of orders',
         data:data,
+        backgroundColor: ['#B1A2CA'],
         borderWidth: 1
       }]
     },

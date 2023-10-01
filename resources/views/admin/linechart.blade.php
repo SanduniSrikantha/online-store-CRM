@@ -4,9 +4,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<div style="width: 60%; margin: 0 auto;">
-    <canvas id="myChart3"></canvas>
-</div>
 
 <script>
     const ctx3 = document.getElementById('myChart3').getContext('2d');
