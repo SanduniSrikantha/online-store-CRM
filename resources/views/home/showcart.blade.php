@@ -29,18 +29,21 @@
         }
 
         table, th, td {
-            border:1px solid grey;
+            
         }
 
         .th_deg{
             font-size:20px;
-            padding: 5px;
-            background: blue;
+            
+            
+            
         }
 
         .img_deg{
-            height:100px;
+            height:200px;
             width: auto;
+            margin-top: 5px;
+            margin-bottom: 5px;
         }
     </style>
 
@@ -69,15 +72,16 @@
 
    
   <!--WORKING HERE RN---------------------------------------------------------------------------->  
-
+  <h1 class="font-semibold text-2xl text-black ml-5 mb-3 mt-5">Shopping Cart</h1>
    <div class="center">
     <table>
         <tr>
-            <th class="th_deg">Product title</th>
-            <th class="th_deg">Quantity</th>
-            <th class="th_deg">Price</th>
-            <th class="th_deg">Image</th>
-            <th class="th_deg">Action</th>
+            <th class="th_deg pl-5 uppercase pb-5">Image</th>
+            <th class="th_deg pl-5 uppercase pb-5">Product title</th>
+            <th class="th_deg pl-5 uppercase pb-5">Quantity</th>
+            <th class="th_deg pl-5 uppercase pb-5">Price</th>
+            
+            <th class="th_deg pl-5 uppercase pb-5">Action</th>
         </tr>
 
         <?php $totalprice=0; ?>
@@ -85,11 +89,13 @@
         @foreach($cart as $cart)
 
         <tr>
-            <td>{{$cart->product_title}}</td>
-            <td>{{$cart->quantity}}</td>
-            <td>${{$cart->price}}.00</td>
             <td><img class='img_deg' src="/product/{{$cart->image}}"></td>
-            <td><a class="btn btn-danger" onclick="return confirm('Are you sure you want to remove this product?')" href="{{url('/remove_cart', $cart->id)}}">Remove Product</a></td>
+            <td class="pl-5">{{$cart->product_title}}</td>
+            <td class="pl-5">{{$cart->quantity}}</td>
+            
+            <td class="pl-4">${{$cart->price}}.00</td>
+    
+            <td><a class="btn btn-danger ml-2 mr-2" onclick="return confirm('Are you sure you want to remove this product?')" href="{{url('/remove_cart', $cart->id)}}">Remove Product</a></td>
         </tr>
 
         <?php $totalprice=$totalprice + $cart->price ?>
@@ -101,13 +107,17 @@
     </table>
 
     <div>
-        <h1>Total Price: ${{$totalprice}}.00</h1>
+        <h1 class="uppercase pt-5">Total Price: ${{$totalprice}}.00</h1>
     </div>
 
     <div>
-        <h1>Proceed to order</h1>
-        <a href="{{url('cash_order')}}" class="btn btn-danger">Cash On Delivery</a>
+        <h1 class="pt-2">Proceed to order</h1>
+        <div class="pt-4">
+        <a href="{{url('cash_order')}}" class="btn btn-danger mr-3">Cash On Delivery</a>
         <a href="{{url('stripe', $totalprice )}}" class="btn btn-danger">Pay using Card</a>
+
+        </div>
+
     </div>
    </div>
 
@@ -130,3 +140,11 @@
     
   </body>
 </html>
+
+
+
+
+
+
+
+

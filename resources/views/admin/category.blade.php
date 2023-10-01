@@ -36,7 +36,7 @@
       @include('admin.header')
     <!-- container-scroller -->
     <div class="main-panel">
-        <div class="content-wrapper">
+        <div class="content-wrapper bg-white">
 
         @if(session()->has('message'))
 
@@ -50,20 +50,20 @@
 
 
             <div class="div_center">
-                <h2 class="h2_font">Add Category</h2>
+                <h2 class="h2_font text-black">Add Category</h2>
 
                 <form action="{{'/add_category'}}" method="POST">
 
                 @csrf
                     <input class="input_color" type="text" name="category" placeholder="Write category name">
-                    <input type="submit" class="btn btn-primary" name="submit" value="Add Category">
+                    <input type="submit" class="btn btn-dark" name="submit" value="Add Category">
                 </form>
             </div>
 
             <table class="center">
                 <tr>
-                    <td>Category Name</td>
-                    <td>Action</td>
+                    <td class="text-black uppercase pb-3">Category Name</td>
+                    <td class="text-black uppercase pb-3">Action</td>
                 </tr>
 
                 @foreach($data as $data)
@@ -71,8 +71,8 @@
 
 
                 <tr>
-                    <td>{{$data->category_name}}</td>
-                    <td><a onclick="return confirm('Are you sure you want this category to be deleted?')" class="btn btn-danger" href="{{url('delete_category',$data->id)}}">Delete</a></td>
+                    <td class="text-black pb-2">{{$data->category_name}}</td>
+                    <td class="text-black"><a onclick="return confirm('Are you sure you want this category to be deleted?')" class="btn btn-danger" href="{{url('delete_category',$data->id)}}">Delete</a></td>
                 </tr>
 
                 @endforeach

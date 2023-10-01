@@ -41,7 +41,7 @@ label{
       @include('admin.header')
     <!-- container-scroller -->
     <div class="main-panel">
-        <div class="content-wrapper">
+        <div class="content-wrapper bg-white">
         @if(session()->has('message'))
 
 <div class="alert alert-success">
@@ -53,29 +53,29 @@ label{
 @endif
 
         <div class="div_center">
-            <h1 class="font_size">Add User</h1>
+            <h1 class="font_size text-black">Add User</h1>
 
             <form action="{{url('add_user')}}" method="POST" enctype="multipart/form-data">
 
             @csrf
 
             <div class="div_design">
-            <label>Username: </label>   
+            <label class="text-black">Username: </label>   
             <input class="text_color" type="text" name="Username" placeholder="Enter username" required="">
             </div>
 
             <div class="div_design">
-            <label>Email: </label>   
+            <label class="text-black">Email: </label>   
             <input class="text_color" type="email" name="Email" placeholder="Enter username" required="">
             </div>
 
             <div class="div_design">
-            <label>Password: </label>   
+            <label class="text-black">Password: </label>   
             <input class="text_color" type="password" name="Password" placeholder="Enter username" required="">
             </div>
 
             <div class="div_design">
-            <label>Usertype: </label>   
+            <label class="text-black">Usertype: </label>   
             <input class="text_color" type="number" name="Usertype" placeholder="Enter username" required="">
             </div>
 
@@ -84,17 +84,17 @@ label{
            
 
             <div class="div_design">
-            <label>Address: </label>   
+            <label class="text-black">Address: </label>   
             <input class="text_color" type="text" name="Address" placeholder="Enter username" required="">
             </div>
 
             <div class="div_design">
-            <label>Contact number: </label>   
+            <label class="text-black">Contact number: </label>   
             <input class="text_color" type="number" name="Phone" placeholder="Enter username" required="">
             </div>
 
             <div class="div_design">
-            <input type="submit" value="Add User" class="btn btn-primary" required="">
+            <input type="submit" value="Add User" class="btn btn-dark" required="">
 
             </div>
 

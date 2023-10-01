@@ -12,15 +12,15 @@
         }
 
         .table_deg{
-            border: 2px solid white;
+            border: 0.5px solid white;
             width: 100%;
-            margin: auto;
+            margin:;
             
             text-align: center;
         }
 
         .th_deg{
-            background-color:blue;
+            background-color:;
         }
     </style>
   </head>
@@ -32,46 +32,46 @@
       @include('admin.header')
     <!-- container-scroller -->
     <div class="main-panel">
-        <div class="content-wrapper">
+        <div class="content-wrapper bg-white">
 
-        <h1 class="title_deg">All Orders</h1>
+        <h1 class="title_deg text-black">All Orders</h1>
 
         <table class="table_deg">
             <tr class="th_deg">
-                <th>Name</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Phone</th>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Payment Method</th>
-                <th>Delivery Status</th>
-                <th>Image</th>
-                <th>Delivered</th>
+                <th class="text-black uppercase pb-3 pl-3">Name</th>
+                <th class="text-black uppercase pb-3 pl-3">Email</th>
+                <th class="text-black uppercase pb-3 pl-3">Address</th>
+                <th class="text-black uppercase pb-3 pl-3">Phone</th>
+                <th class="text-black uppercase pb-3 pl-3">Product</th>
+                <th class="text-black uppercase pb-3 pl-3">Quantity</th>
+                <th class="text-black uppercase pb-3 pl-3">Price</th>
+                <th class="text-black uppercase pb-3 pl-3">Payment Method</th>
+                <th class="text-black uppercase pb-3 pl-3">Delivery Status</th>
+                <!--<th class="text-black uppercase">Image</th> status-->
+                <th class="text-black uppercase pb-3 pl-3">Edit status</th>
             </tr>
 
             @foreach($order as $order)
             <tr>
-                <td>{{$order->name}}</td>
-                <td>{{$order->email}}</td>
-                <td>{{$order->address}}</td>
-                <td>{{$order->phone}}</td>
-                <td>{{$order->product_title}}</td>
-                <td>{{$order->quantity}}</td>
-                <td>{{$order->price}}</td>
-                <td>{{$order->payment_status}}</td>
-                <td>{{$order->delivery_status}}</td>
-                <td>
+                <td class="text-black pb-1">{{$order->name}}</td>
+                <td class="text-black pb-1">{{$order->email}}</td>
+                <td class="text-black pb-1">{{$order->address}}</td>
+                <td class="text-black pb-1">{{$order->phone}}</td>
+                <td class="text-black pb-1">{{$order->product_title}}</td>
+                <td class="text-black pb-1">{{$order->quantity}}</td>
+                <td class="text-black pb-1">{{$order->price}}</td>
+                <td class="text-black pb-1">{{$order->payment_status}}</td>
+                <td class="text-black pb-1">{{$order->delivery_status}}</td>
+                <!--<td class="text-black">
                     <img src="/product/{{$order->image}}">
-                </td>
+                </td>-->
                 <td>
 
                 @if($order->delivery_status=='processing')
                     <a class="btn btn-primary" href="{{url('delivered', $order->id)}}" onclick="return confirm('Are you sure this product has been delivered?')">Delivered</a>
 
                 @else
-                <p>Delivered</p>
+                <p class="text-black">Delivered</p>
 
                 @endif
                 </td>

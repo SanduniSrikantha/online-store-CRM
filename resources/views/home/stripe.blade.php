@@ -32,7 +32,7 @@
     
 <div class="container">
     
-    <h1>Pay Using Your Card - Total Amount ${{$totalprice}}</h1>
+    <h1 class="uppercase mt-5 mb-5 center">Pay Using Your Card - Total Amount ${{$totalprice}}</h1>
     
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -101,7 +101,7 @@
     
                         <div class="row">
                             <div class="col-xs-12">
-                                <input type="submit" name="" value="Pay Now">
+                                <input type="submit" name="" value="Pay Now" class="border-4 border-black">
                             </div>
                         </div>
                             

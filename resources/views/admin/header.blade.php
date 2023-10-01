@@ -1,5 +1,5 @@
 <head>@vite('resources/css/app.css')</head>
-<div class="container-fluid page-body-wrapper">
+<div class="container-fluid page-body-wrapper bg-white shadow-md">
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar p-0 fixed-top d-flex flex-row bg-white">
           <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">

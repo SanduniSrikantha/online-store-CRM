@@ -508,20 +508,20 @@ i
            
             <div class="row">
             <div class="top-selling-products">
-                <h2>Top Selling Products</h2>
+                <h2 class="text-black">Top Selling Products</h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>Product</th>
+                            <th class="text-black">Product</th>
                
-                            <th>Total Quantity Sold</th>
+                            <th class="text-black">Total Quantity Sold</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($topSellingProducts as $product)
                             <tr>
-                                <td>{{ $product->title }}</td>
-                                <td>{{ $product->total_orders }}</td>
+                                <td class="text-black">{{ $product->title }}</td>
+                                <td class="text-black">{{ $product->total_orders }}</td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -530,19 +530,19 @@ i
 
 
             <div class="most-profitable-categories">
-                <h2>Most Profitable Product Categories</h2>
+                <h2 class="text-black">Most Profitable Product Categories</h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>Category</th>
-                            <th>Total Revenue</th>
+                            <th class="text-black">Category</th>
+                            <th class="text-black">Total Revenue</th>
                         </tr>
                                 </thead>
                     <tbody>
                         @foreach($mostProfitableCategories as $category)
                             <tr>
-                                <td>{{ $category->category }}</td>
-                                <td>${{ $category->total_revenue }}</td>
+                                <td class="text-black">{{ $category->category }}</td>
+                                <td class="text-black">${{ $category->total_revenue }}</td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -550,28 +550,28 @@ i
             </div>
 
             <div class="retention-churn-rates">
-                <h2>Customer Retention and Churn Rates</h2>
-                <p>Retention Rate: {{ $retentionRate }}%</p>
-                <p>Churn Rate: {{ $churnRate }}%</p>
+                <h2 class="text-black">Customer Retention and Churn Rates</h2>
+                <p class="text-black">Retention Rate: {{ $retentionRate }}%</p>
+                <p class="text-black">Churn Rate: {{ $churnRate }}%</p>
             </div>
 
 
             <div class="repeat-customers">
-                <h2>Repeat Customers</h2>
+                <h2 class="text-black">Repeat Customers</h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>User ID</th>
-                            <th>Name</th>
-                            <th>Order Count</th>
+                            <th class="text-black">User ID</th>
+                            <th class="text-black">Name</th>
+                            <th class="text-black">Order Count</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($repeatCustomers as $customer)
                             <tr>
-                                <td>{{ $customer->id }}</td>
-                                <td>{{ $customer->name }}</td>
-                                <td>{{ $customer->order_count }}</td>
+                                <td class="text-black">{{ $customer->id }}</td>
+                                <td class="text-black">{{ $customer->name }}</td>
+                                <td class="text-black">{{ $customer->order_count }}</td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -580,32 +580,32 @@ i
 
             <!-- Display Most Viewed Products -->
             <div>
-                <h3>Most Viewed Products:</h3>
+                <h3 class="text-black">Most Viewed Products:</h3>
                 <ul>
                     @foreach ($mostViewedProducts as $product)
-                        <li>{{ $product->title }} - Views: {{ $product->views }}</li>
+                        <li class="text-black">{{ $product->title }} - Views: {{ $product->views }}</li>
                     @endforeach
                 </ul>
             </div>
 
             <!-- Display Products with Zero Views -->
             <div>
-                <h3>Products with Zero Views:</h3>
+                <h3 class="text-black">Products with Zero Views:</h3>
                 <ul>
                     @foreach ($productsWithZeroViews as $product)
-                        <li>{{ $product->title }}</li>
+                        <li class="text-black">{{ $product->title }}</li>
                     @endforeach
                 </ul>
             </div>
 
             <div>
-                <h3>Conversion Rate:</h3>
-                <p>{{ $conversionRate }}%</p>
+                <h3 class="text-black">Conversion Rate:</h3>
+                <p class="text-black">{{ $conversionRate }}%</p>
             </div>
 
             <div>
-                <h3>Abandoned Carts:</h3>
-                <p>{{ $abandonedCarts }}</p>
+                <h3 class="text-black">Abandoned Carts:</h3>
+                <p class="text-black">{{ $abandonedCarts }}</p>
             </div>
 
 

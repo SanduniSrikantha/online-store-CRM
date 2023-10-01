@@ -24,7 +24,7 @@
         }
 
         .th_header{
-            background:purple;
+            background:;
         }
 
         .th_design{
@@ -41,7 +41,7 @@
       @include('admin.header')
     <!-- container-scroller -->
     <div class="main-panel">
-        <div class="content-wrapper">
+        <div class="content-wrapper bg-white">
 
         @if(session()->has('message'))
 
@@ -56,35 +56,35 @@
 
 
 
- <h2 class="font_size">All Users</h2>
+ <h2 class="font_size text-black">All Users</h2>
  <table class="center">
      <tr class="th_header">
-         <th class="th_design">Username</th>
-         <th class="th_design">Email</th>
-         <th class="th_design">Password</th>
-         <th class="th_design">Address</th>
-         <th class="th_design">Phone</th>
-         <th class="th_design">Usertype</th>
+         <th class="th_design text-black uppercase">Username</th>
+         <th class="th_design text-black uppercase">Email</th>
+         <th class="th_design text-black uppercase">Password</th>
+         <th class="th_design text-black uppercase">Address</th>
+         <th class="th_design text-black uppercase">Phone</th>
+         <th class="th_design text-black uppercase">Usertype</th>
          
-         <th class="th_design">Update</th>
-         <th class="th_design">Delete</th>
+         <th class="th_design text-black uppercase">Update</th>
+         <th class="th_design text-black uppercase">Delete</th>
      </tr>
 
      @foreach($user as $user)
 
      <tr>
-         <td>{{$user->name}}</td>
-         <td>{{$user->email}}</td>
-         <td></td>
-         <td>{{$user->address}}</td>
-         <td>{{$user->phone}}</td>
-         <td>{{$user->usertype}}</td>
+         <td class="text-black center pb-2">{{$user->name}}</td>
+         <td class="text-black center pb-2">{{$user->email}}</td>
+         <td class="text-black center pb-2"></td>
+         <td class="text-black center pb-2">{{$user->address}}</td>
+         <td class="text-black center pb-2">{{$user->phone}}</td>
+         <td class="text-black center pb-2">{{$user->usertype}}</td>
 
 
-         <td>
+         <td class="text-black center pb-2">
              <a  class="btn btn-success" href="{{url('update_user', $user->id)}}">Update</a>
          </td>
-         <td>
+         <td class="text-black center pb-2">
          <a onclick="return confirm('Are you sure you want to delete this product?')" class="btn btn-danger "href="{{url('delete_user', $user->id )}}">Delete</a>
          </td>
      </tr>
