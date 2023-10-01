@@ -71,6 +71,8 @@ route::get('/delete_user/{id}', [AdminController::class,'delete_user']);
 
 route::get('/update_user/{id}', [AdminController::class,'update_user']);
 
+route::get('/address_book', [AdminController::class, 'address_book']);
+
 route::post('/update_user_confirm/{id}', [AdminController::class,'update_user_confirm']);
 
 

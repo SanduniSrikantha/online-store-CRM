@@ -221,6 +221,13 @@ class AdminController extends Controller
         return view('admin.update_user', compact('user'));
     }
 
+    public function address_book(){
+
+        $user=user::all();
+        return view('admin.address_book',compact('user'));
+
+    }
+
     public function update_user_confirm(Request $request, $id){
         $user=user::find($id);
 

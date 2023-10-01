@@ -6,14 +6,14 @@
 <nav class="sidebar sidebar-offcanvas bg-gray-300" className="" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top bg-white">
           <a class="text-2xl text-black" href="index.html"><h1>MOMO</h1></a>
-          <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="admin/assets/images/logo-mini.svg" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="" alt="logo" /></a>
         </div>
         <ul class="nav">
           <li class="nav-item profile">
             <div class="profile-desc">
               <div class="profile-pic">
                 <div class="count-indicator">
-                  <img class="img-xs rounded-circle " src="admin/assets/images/faces/face15.jpg" alt="">
+                  <img class="img-xs rounded-circle " src="admin/assets/images/avatar.png" alt="">
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
@@ -130,7 +130,7 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{url('/show_user')}}"> Show Users </a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{url('/view_user')}}"> Add Users </a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{url('/user_analytics')}}"> Analytics </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('/address_book')}}"> Address Book </a></li>
                 <!--<li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>-->
               </ul>
