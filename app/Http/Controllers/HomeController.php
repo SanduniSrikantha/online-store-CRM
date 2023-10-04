@@ -22,6 +22,7 @@ use Session;
 
 use Stripe;
 
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 
@@ -225,6 +226,8 @@ class HomeController extends Controller
             $cart->quantity=$request->quantity;
 
             $cart->save();
+
+            Alert::success('Product Added Successfully.', 'Your Product has been Added to the Cart.');
 
             return redirect()->back();
 

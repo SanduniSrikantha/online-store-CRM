@@ -24,6 +24,8 @@
     
   </head>
   <body>
+
+  @include('sweetalert::alert')
   
   <div class="site-wrap">
 

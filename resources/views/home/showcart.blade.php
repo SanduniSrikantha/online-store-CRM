@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -59,6 +61,8 @@
     
   </head>
   <body>
+
+  @include('sweetalert::alert')
   
   <div class="site-wrap">
 
@@ -95,7 +99,7 @@
             
             <td class="pl-4">${{$cart->price}}.00</td>
     
-            <td><a class="btn btn-danger ml-2 mr-2" onclick="return confirm('Are you sure you want to remove this product?')" href="{{url('/remove_cart', $cart->id)}}">Remove Product</a></td>
+            <td><a class="btn btn-danger ml-2 mr-2" onclick="confirmation(event)" href="{{url('/remove_cart', $cart->id)}}">Remove Product</a></td>
         </tr>
 
         <?php $totalprice=$totalprice + $cart->price ?>
@@ -127,6 +131,26 @@
 
 
   </div>
+
+  <script>
+    function confirmation(ev){
+        ev.preventDefault();
+        var urlToRedirect = ev.currentTarget.getAttribute('href');
+        console.log(urlToRedirect);
+        swal({
+            title:'Are you sure you want to remove this product?',
+            text:'You will not be able to revert this action',
+            icon:'warning',
+            buttons:true,
+            danferMode:true,
+        })
+        .then((willCancel)=>{
+            if(willCancel){
+                window.location.href = urlToRedirect;
+            }
+        });
+    }
+  </script>
 
   <script src="home/js/jquery-3.3.1.min.js"></script>
   <script src="home/js/jquery-ui.js"></script>
