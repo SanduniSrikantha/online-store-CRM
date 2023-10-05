@@ -196,51 +196,50 @@ class HomeController extends Controller
 
     public function add_cart(Request $request, $id){
         if(Auth::id()){
-
-            $user=Auth::user();
-
-            $product=product::find($id);
-
-            $cart=new cart;
-
-            $cart->name=$user->name;
-            $cart->email=$user->email;
-            $cart->phone=$user->phone;
-            $cart->address=$user->address;
-            $cart->user_id=$user->id;
-
-            $cart->product_title=$product->title;
-
-            if($product->discount_price!=null){
-                $cart->price=$product->discount_price * $request->quantity;
+            $user = Auth::user();
+            $product = Product::find($id);
+    
+            // Ensure the product exists and there is available quantity
+            if ($product && $product->quantity >= $request->quantity) {
+                $cart = new Cart;
+    
+                $cart->name = $user->name;
+                $cart->email = $user->email;
+                $cart->phone = $user->phone;
+                $cart->address = $user->address;
+                $cart->user_id = $user->id;
+    
+                $cart->product_title = $product->title;
+    
+                if ($product->discount_price != null) {
+                    $cart->price = $product->discount_price * $request->quantity;
+                } else {
+                    $cart->price = $product->price * $request->quantity;
+                }
+    
+                $cart->image = $product->image;
+                $cart->product_id = $product->id;
+                $cart->quantity = $request->quantity;
+    
+                $cart->save();
+    
+                // Decrement the product quantity
+                $product->quantity -= $request->quantity;
+                $product->save();
+    
+                Alert::success('Product Added Successfully.', 'Your Product has been Added to the Cart.');
+    
+                return redirect()->back();
+            } else {
+                // Handle the case where there is not enough quantity available
+                Alert::error('Product Not Added.', 'There is not enough quantity available.');
+                return redirect()->back();
             }
-
-            else{
-                $cart->price=$product->price * $request->quantity;
-            }
-            
-            
-            $cart->image=$product->image;
-            $cart->product_id=$product->id;
-
-            $cart->quantity=$request->quantity;
-
-            $cart->save();
-
-            Alert::success('Product Added Successfully.', 'Your Product has been Added to the Cart.');
-
-            return redirect()->back();
-
-
-
-            
-
-            
-        }
-        else{
+        } else {
             return redirect('login');
         }
     }
+    
 
     public function show_cart(){
 

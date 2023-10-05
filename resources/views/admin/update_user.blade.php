@@ -9,6 +9,7 @@
 .div_center{
     text-align:center;
     padding-top:40px;
+    color:black;
 }
 
 .font_size{
@@ -17,7 +18,7 @@
 }
 
 .text_color{
-    color:black;
+    
     padding-bottom:20px;
 }
 
@@ -42,7 +43,7 @@ label{
       @include('admin.header')
     <!-- container-scroller -->
     <div class="main-panel">
-        <div class="content-wrapper">
+        <div class="content-wrapper bg-white">
         @if(session()->has('message'))
 
 <div class="alert alert-success">

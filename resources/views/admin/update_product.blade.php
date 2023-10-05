@@ -9,6 +9,8 @@
 
         .div_center{
             text-align:center;
+            color:black;
+
             padding-top:40px;
         }
 
@@ -18,7 +20,6 @@
         }
 
         .text_color{
-            color:black;
             padding-bottom:20px;
         }
 
@@ -43,7 +44,7 @@
       @include('admin.header')
     <!-- container-scroller -->
     <div class="main-panel">
-        <div class="content-wrapper">
+        <div class="content-wrapper bg-white">
             <div class="div_center">
             @if(session()->has('message'))
 
