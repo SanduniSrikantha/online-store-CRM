@@ -26,7 +26,7 @@ By seamlessly integrating e-commerce functionalities with a sophisticated CRM in
 
 ## Project Document <a name="document"><a/>
 
-Brief description or overview of the project.
+You can access the project document [here](Documents/SSP2-FinalReport-CB010303.pdf).
 
 ## Features <a name="features"></a>
 
