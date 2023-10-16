@@ -1,4 +1,4 @@
-<h1>E-Commerce and CRM Integration for Online Clothing Retail Store</h1>
+<h1>Online Clothing Retail Store with CRM Integration</h1>
 
 <img src="public/admin/assets/images/ReadMe.png">
 
