@@ -1,4 +1,13 @@
-<head> @vite('resources/css/app.css')</head>
+<head> @vite('resources/css/app.css')
+  <style type="text/css">
+          .AddToCart{
+        padding:10px;
+        background-color:pink;
+        border: 1px solid pink;
+        text:white;
+      }
+  </style>
+</head>
 <div class="site-section">
       <div class="container">
         <div class="row">
@@ -41,9 +50,9 @@
 
               @csrf
 
-              <div>
+              <div >
                 <input class="w-20 mr-5" type="number" name="quantity" value="1" min="1">
-                <input class="font-semibold hover:font-extrabold" type="submit" value="Add to Cart">
+                <input class="font-semibold hover:font-extrabold" class="AddToCart" type="submit" value="Add to Cart">
               </div>
               </form>
 
